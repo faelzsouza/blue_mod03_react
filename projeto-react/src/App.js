@@ -1,13 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React from "react";
+import "./App.css";
+import Text from "./components/Text/Text";
 
-function App() {
+
+/* //Exemplo de uso por function 
+  
+  function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Raffinha aqui! uh, uh é o terror!
         </p>
         <a
           className="App-link"
@@ -22,4 +27,16 @@ function App() {
   );
 }
 
-export default App;
+export default App; */
+// exemplo de uso por class
+export default class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <Text texto="Olá, Mundo!" />
+                <Text texto="Olá, Rafael!" />
+                <Text texto="Olá, Brasil!" />
+            </div>
+        );
+    }
+}
