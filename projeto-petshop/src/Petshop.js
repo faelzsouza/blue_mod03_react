@@ -8,16 +8,16 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Tooltip from "@material-ui/core/Tooltip";
-import './Petshop.css'
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
+import "./Petshop.css";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
 
 export default function Home() {
     const [trocar, setTrocar] = useState(1);
@@ -104,11 +104,15 @@ let listaProdutos = [
 const TelaPrincipal = () => {
     return (
         <Container>
-            <Typography variant="h1">HappyPet <i class="fas fa-paw"></i></Typography>
-            <Typography variant="body1">Bem vindo(a) ao petshop que se preocupa com a felicidade e bem-estar do seu pet!</Typography>
-            <div>
-            {ListaItens(listaProdutos)}
-            </div>
+            <Typography variant="h1">
+                HappyPet <i class="fas fa-paw"></i>
+            </Typography>
+            <Typography variant="body1">
+                Bem vindo(a) ao petshop que se preocupa com a felicidade e
+                bem-estar do seu pet!
+            </Typography>
+            <div>{ListaItens(listaProdutos)}</div>
+            <MidiasRodape />
         </Container>
     );
 };
@@ -122,8 +126,7 @@ const TelaCadastro = () => {
     const [editando, setEditando] = useState(false);
     const [idxEditando, setIdxEditando] = useState(null);
 
-    const handleNomeChange = (e) =>
-        setNomeProduto(e.target.value);
+    const handleNomeChange = (e) => setNomeProduto(e.target.value);
     const handleValorChange = (e) => setValor(e.target.value);
     const handleImagemLink = (e) => setImagemLink(e.target.value);
 
@@ -176,7 +179,10 @@ const TelaCadastro = () => {
     return (
         <Container>
             <Typography variant="h1">Admin</Typography>
-            <Typography variant="body1">Área administrativa para cadastro, edição e deleção de produtos da loja.</Typography>
+            <Typography variant="body1">
+                Área administrativa para cadastro, edição e deleção de produtos
+                da loja.
+            </Typography>
             <form onSubmit={handleSubmit}>
                 <TextField
                     type="text"
@@ -205,7 +211,9 @@ const TelaCadastro = () => {
                     label="URL da imagem"
                     required
                 />
-                <Button type="submit" variant="contained" color="secondary">Salvar</Button>
+                <Button type="submit" variant="contained" color="secondary">
+                    Salvar
+                </Button>
             </form>
             <TableContainer component={Paper}>
                 <Table>
@@ -249,19 +257,18 @@ const TelaCadastro = () => {
     );
 };
 
-const ListaItens = lista => {
+const ListaItens = (lista) => {
     return lista.map((item) => (
         <Card className="item" key={item.id}>
             <CardContent>
-            <Typography>{item.nome}</Typography>
+                <Typography>{item.nome}</Typography>
             </CardContent>
-            <CardMedia 
-                component="img"
-                image={item.imagemLink}
-            />
+            <CardMedia component="img" image={item.imagemLink} />
             <CardContent>
-            <Typography align="right">R${item.valor}</Typography>
-            <Button variant="contained" color="secondary" align="center">Comprar</Button>
+                <Typography align="right">R${item.valor}</Typography>
+                <Button variant="contained" color="secondary" align="center">
+                    Comprar
+                </Button>
             </CardContent>
         </Card>
     ));
@@ -269,22 +276,68 @@ const ListaItens = lista => {
 
 const useStyles = makeStyles({
     root: {
-      width: '100vw',
-      fontSize: '2rem'
+        width: "100vw",
+        fontSize: "2rem",
     },
-  });
+});
 
 const LabelBottomNavigation = (set) => {
     const classes = useStyles();
-    const [value, setValue] = React.useState('Home');
-  
+    const [value, setValue] = React.useState("Home");
+
     const handleChange = (event, newValue) => {
-      setValue(newValue);
+        setValue(newValue);
     };
     return (
-      <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction label="Home" value="Home" icon={<i class="fas fa-home"></i>} onClick={() => set(1)}/>
-        <BottomNavigationAction label="Cadastrar" value="Cadastrar" icon={<i class="fas fa-plus-circle"></i> } onClick={() => set(2)}/>
-      </BottomNavigation>
+        <BottomNavigation
+            value={value}
+            onChange={handleChange}
+            className={classes.root}
+        >
+            <BottomNavigationAction
+                label="Home"
+                value="Home"
+                icon={<i class="fas fa-home"></i>}
+                onClick={() => set(1)}
+            />
+            <BottomNavigationAction
+                label="Cadastrar"
+                value="Cadastrar"
+                icon={<i class="fas fa-plus-circle"></i>}
+                onClick={() => set(2)}
+            />
+        </BottomNavigation>
     );
-  }
+};
+
+const MidiasRodape = () => {
+    return (
+        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", width: "100%"}}>
+            <div style={{ width: "40%"}}>
+                <Typography variant="h5" style={{ marginBottom: "2rem" }}>
+                    Visite uma loja parceira:
+                </Typography>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1838.939573372324!2d-43.19916856837916!3d-22.806941579006136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99792e8d34d635%3A0x749763704b86b08!2sPetz!5e0!3m2!1spt-BR!2sbr!4v1630618880572!5m2!1spt-BR!2sbr"
+                    width="100%"
+                    height="315px"
+                    style={{ border: "0" }}
+                    allowfullscreen=""
+                    loading="lazy"
+                />
+            </div>
+            <div style={{ width: "40%"}}>
+                <Typography variant="h5" style={{ marginBottom: "2rem" }}>Assista os animais mais engraçados de 2020:</Typography>
+                <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/KQdCKM3_5EY"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    );
+};
