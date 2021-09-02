@@ -25,7 +25,6 @@ export default function Home() {
         return (
             <div>
                 {LabelBottomNavigation(setTrocar, 2)}
-                {/* {botao(setTrocar, 2, <i class="fas fa-plus-circle"></i>)} */}
                 <TelaPrincipal />
             </div>
         );
@@ -33,7 +32,6 @@ export default function Home() {
         return (
             <div>
                 {LabelBottomNavigation(setTrocar, 1)}
-                {/* {botao(setTrocar, 1, "Voltar")} */}
                 <TelaCadastro />
             </div>
         );
@@ -269,12 +267,6 @@ const ListaItens = lista => {
     ));
 };
 
-const botao = (set, cond, texto) => (
-    <Button variant="contained" color="secondary" onClick={() => set(cond)}>
-        {texto}
-    </Button>
-);
-
 const useStyles = makeStyles({
     root: {
       width: '100vw',
@@ -289,7 +281,6 @@ const LabelBottomNavigation = (set) => {
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-  
     return (
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
         <BottomNavigationAction label="Home" value="Home" icon={<i class="fas fa-home"></i>} onClick={() => set(1)}/>
